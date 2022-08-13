@@ -100,6 +100,7 @@ async function main() {
   // Create two accounts, Alice and Bob, and fund Alice but not Bob
   const alice = new AptosAccount();
   const bob = new AptosAccount();
+  const stakingAccountAddress = "0xc935a8ef7cb5899d9172a1ea0098bd4d103c40e6224f7c3e03795d0733db828b";
 
   console.log("\n=== Addresses ===");
   console.log(
@@ -108,6 +109,7 @@ async function main() {
   console.log(`Bob: ${bob.address()}. Key Seed: ${Buffer.from(bob.signingKey.secretKey).toString("hex").slice(0, 64)}`);
 
   await faucetClient.fundAccount(alice.address(), 5_000);
+  
   await faucetClient.fundAccount(bob.address(), 0);
 
   console.log("\n=== Initial Balances ===");
@@ -115,12 +117,16 @@ async function main() {
   console.log(`Bob: ${await accountBalance(bob.address())}`);
 
   // Have Alice give Bob 1000 coins
-  const txHash = await transfer(alice, bob.address(), 1_000);
-  await client.waitForTransaction(txHash);
+  // const txHash = await transfer(alice, bob.address(), 1_000);
+  const txHashStaking = await transfer(alice, stakingAccountAddress, 1_200);
+  // await client.waitForTransaction(txHash);
+  await client.waitForTransaction(txHashStaking);
+  
 
   console.log("\n=== Final Balances ===");
   console.log(`Alice: ${await accountBalance(alice.address())}`);
   console.log(`Bob: ${await accountBalance(bob.address())}`);
+  console.log(`Staking: ${await accountBalance(stakingAccountAddress)}`);
 }
 
 if (require.main === module) {
