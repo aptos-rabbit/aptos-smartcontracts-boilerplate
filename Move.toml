@@ -1,0 +1,9 @@
+[package]
+name = "Examples"
+version = "0.0.0"
+
+[addresses]
+HelloBlockchain = "_"
+
+[dependencies]
+AptosFramework = { local = "/c/projects/aptos/pooltogether/aptos-core/aptos-framework" }
