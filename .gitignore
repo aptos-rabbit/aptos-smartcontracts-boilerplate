@@ -3,3 +3,5 @@
 **/yarn.lock
 **/.venv
 *.pyc
+aptos-core
+build

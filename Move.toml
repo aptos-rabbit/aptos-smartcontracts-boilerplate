@@ -6,4 +6,4 @@ version = "0.0.0"
 HelloBlockchain = "_"
 
 [dependencies]
-AptosFramework = { local = "/c/projects/aptos/pooltogether/aptos-core/aptos-framework" }
+AptosFramework = { local = "aptos-core/aptos-move/framework/aptos-framework" }
