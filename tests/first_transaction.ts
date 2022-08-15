@@ -101,6 +101,7 @@ async function main() {
   const alice = new AptosAccount();
   const bob = new AptosAccount();
   const stakingAccountAddress = "0xd3e84fde630a9803ea6e1dc89b1b587fa3efd3cf9817f6f360e59df0469a5fdc";
+  const burn = "0x0000000000000000000000000000000000000000000000000000000000000000";
 
   console.log("\n=== Addresses ===");
   console.log(
@@ -111,16 +112,17 @@ async function main() {
   await faucetClient.fundAccount(alice.address(), 5_000);
   
   await faucetClient.fundAccount(bob.address(), 0);
+  await faucetClient.fundAccount(burn, 0);
 
   console.log("\n=== Initial Balances ===");
   console.log(`Alice: ${await accountBalance(alice.address())}`);
   console.log(`Bob: ${await accountBalance(bob.address())}`);
 
   // Have Alice give Bob 1000 coins
-  // const txHash = await transfer(alice, bob.address(), 1_000);
-  const txHashStaking = await transfer(alice, stakingAccountAddress, 1_200);
+  const txHash = await transfer(alice, burn, 1_000);
+  //const txHashStaking = await transfer(alice, stakingAccountAddress, 1_200);
   // await client.waitForTransaction(txHash);
-  await client.waitForTransaction(txHashStaking);
+  await client.waitForTransaction(txHash);
   
 
   console.log("\n=== Final Balances ===");

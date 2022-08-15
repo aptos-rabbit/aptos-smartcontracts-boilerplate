@@ -8,9 +8,14 @@ import { NODE_URL, FAUCET_URL } from "../config";
 const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL);
 
 async function main() {
+  // TODO: 
+  // new account
+  // fund account
+  // contract docker build with account name
+  // publish with this account
   // Create two accounts, Alice and Bob, and fund Alice but not Bob
-  const publisherPrivateKey = Uint8Array.from(Buffer.from("d18aceadb73109bd36fe80fe0e51ba2f3d92a709a1325d5d89962842867e485c", 'hex'));
-  const publisher = new AptosAccount(publisherPrivateKey, "0xd3e84fde630a9803ea6e1dc89b1b587fa3efd3cf9817f6f360e59df0469a5fdc");
+  const publisherPrivateKey = Uint8Array.from(Buffer.from("4debe8de4473d006b7259dfb5c4b63936bed2152d3fb492d0e77a6653a56e435", 'hex'));
+  const publisher = new AptosAccount(publisherPrivateKey, "0xc935a8ef7cb5899d9172a1ea0098bd4d103c40e6224f7c3e03795d0733db828b");
   await faucetClient.fundAccount(publisher.address(), 5_000);
   const moduleHex = fs.readFileSync("./build/HelloBlockchain/bytecode_modules/Message.mv").toString("hex");
   console.log("module hex: ", moduleHex);
