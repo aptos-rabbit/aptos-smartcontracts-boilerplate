@@ -1,8 +1,8 @@
 // Copyright (c) The Aptos Foundation
 // SPDX-License-Identifier: Apache-2.0
 
-export const NODE_URL = "http://0.0.0.0:8080";
-export const FAUCET_URL = "http://0.0.0.0:8000";
+import { NODE_URL, FAUCET_URL } from "../config";
+
 
 //:!:>section_1
 
@@ -100,7 +100,7 @@ async function main() {
   // Create two accounts, Alice and Bob, and fund Alice but not Bob
   const alice = new AptosAccount();
   const bob = new AptosAccount();
-  const stakingAccountAddress = "0xc935a8ef7cb5899d9172a1ea0098bd4d103c40e6224f7c3e03795d0733db828b";
+  const stakingAccountAddress = "0xd3e84fde630a9803ea6e1dc89b1b587fa3efd3cf9817f6f360e59df0469a5fdc";
 
   console.log("\n=== Addresses ===");
   console.log(

@@ -15,3 +15,7 @@ RUN printf '#!/bin/sh\nexport CARGO_HOME=/opt/cargo\nexec /bin/sh "$@"\n' >/usr/
 RUN chmod +x /usr/local/bin/sh
 
 RUN cargo install --git https://github.com/aptos-labs/aptos-core.git aptos --branch devnet
+
+RUN apt-get install git -y
+RUN mkdir /sdk
+RUN cd /sdk & git clone https://github.com/aptos-labs/aptos-core.git
