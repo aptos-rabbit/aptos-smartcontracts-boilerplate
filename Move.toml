@@ -1,9 +1,9 @@
 [package]
-name = "Examples"
+name = "HelloBlockchain"
 version = "0.0.0"
 
 [addresses]
 HelloBlockchain = "_"
 
 [dependencies]
-AptosFramework = { local = "/sdk/aptos-core/aptos-move/framework/aptos-framework" }
+AptosFramework = { local = "/aptos-core/aptos-move/framework/aptos-framework" }
