@@ -1,3 +1,3 @@
-docker run -v $(pwd)/.:/src dappsdevs/aptos-cli:0.2.5 aptos move compile --package-dir /src --named-addresses HelloBlockchain=0x11c32982d04fbcc79b694647edff88c5b5d5b1a99c9d2854039175facbeefb40
-docker run -v $(pwd)/.:/src dappsdevs/aptos-cli:0.2.5 ls /src
-docker run -v $(pwd)/.:/src dappsdevs/aptos-cli:0.2.5 aptos move compile --package-dir /src --named-addresses HelloBlockchain=0x11c32982d04fbcc79b694647edff88c5b5d5b1a99c9d2854039175facbeefb40 --output-dir /src/build
+git submodule init
+git submodule update
+docker run -v $(pwd)/.:/src dappsdevs/aptos-cli:0.2.5 aptos move compile --package-dir /src --named-addresses HelloBlockchain=$1 --output-dir /src/build
