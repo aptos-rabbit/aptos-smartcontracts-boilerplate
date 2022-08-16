@@ -1,4 +1,43 @@
-# TestContracts
+# Aptos Boilerplate
+
+This is a Boilerplate project for dapps development on Aptos network.
+This project does the following:
+1. Start local network with validator with [docker-compose](
+https://aptos.dev/nodes/local-testnet/run-a-local-testnet)
+
+2. Compile project using docker [Aptos cli 0.2.5](https://hub.docker.com/repository/docker/dappsdevs/aptos-cli)
+
+3. Deploy and test smart using typescript
+[ts-sdk-doc](https://aptos-labs.github.io/ts-sdk-doc/)
+[transactions-with-ts-sdk](https://aptos.dev/sdks/transactions-with-ts-sdk/)
+
+
+## 1. Start local network
+To start local network you need to install [docker](https://www.docker.com/) & [docker-compose](https://docs.docker.com/compose/).
+
+##### 1.1 go to the directory aptos_local_validator
+```bash
+cd aptos_local_validator
+```
+
+
+##### 1.2 run docker-compose
+```bash
+docker-compose up
+```
+
+##### 1.3 Use Aptos [Fewcha](https://fewcha.app/) client for local network
+* Install [chrome extension](https://chrome.google.com/webstore/detail/fewcha-aptos-wallet/ebfidpplhabeedpnhjnobghokpiioolj)
+* Create wallet
+* Add local network
+Go to Seetings
+![Alt text](img/Fewcha1.PNG?raw=true "Fewcha1")
+Scroll down and press "Custom Network"
+![Alt text](img/Fewcha2.PNG?raw=true "Fewcha2")
+Press "Add new network"
+![Alt text](img/Fewcha3.PNG?raw=true "Fewcha3")
+Press "Save"
+![Alt text](img/Fewcha4.PNG?raw=true "Fewcha4")
 
 For aptos projects 
 include localenv
