@@ -1,0 +1,1 @@
+docker run -v "%cd%":/src dappsdevs/aptos-cli:0.2.5 aptos move compile --package-dir /src --named-addresses HelloBlockchain=0xc935a8ef7cb5899d9172a1ea0098bd4d103c40e6224f7c3e03795d0733db828b --output-dir /src
