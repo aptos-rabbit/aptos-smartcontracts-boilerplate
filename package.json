@@ -9,12 +9,13 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
-    "first_transaction": "node --loader ts-node/esm tests/first_transaction.ts",
-    "deploy_hello_blockchain": "node --loader ts-node/esm deploy/publish_hello_world.ts",
-    "deploy_hello_blockchain_orig": "node --loader ts-node/esm tests/hello_blockchain_orig.ts",
-    "first_coin": "node --loader ts-node/esm tests/first_coin.ts",
-    "first_nft": "node --loader ts-node/esm tests/first_nft.ts",
-    "hello_blockchain": "node --loader ts-node/esm tests/hello_blockchain.ts"
+    "faucet": "ts-node tests/faucet.ts",
+    "first_transaction": "ts-node tests/first_transaction.ts",
+    "deploy_hello_blockchain": "ts-node deploy/publish_hello_world.ts",
+    "deploy_hello_blockchain_orig": "ts-node tests/hello_blockchain_orig.ts",
+    "first_coin": "ts-node tests/first_coin.ts",
+    "first_nft": "ts-node tests/first_nft.ts",
+    "hello_blockchain": "ts-node tests/hello_blockchain.ts"
   },
   "keywords": [],
   "dependencies": {

@@ -3,7 +3,8 @@
 
 import assert from "assert";
 import fs from "fs";
-import { NODE_URL, FAUCET_URL, accountBalance } from "./first_transaction";
+import { accountBalance } from "./first_transaction";
+import { NODE_URL, FAUCET_URL } from "../config";
 import { AptosAccount, TxnBuilderTypes, BCS, MaybeHexString, HexString, AptosClient, FaucetClient } from "aptos";
 
 const readline = require("readline").createInterface({

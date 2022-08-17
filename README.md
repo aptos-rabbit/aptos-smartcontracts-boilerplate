@@ -39,6 +39,11 @@ Press "Add new network"
 Press "Save"
 ![Alt text](img/Fewcha4.PNG?raw=true "Fewcha4")
 
+##### 1.4 Top up your balance with a faucet
+
+
+***
+
 For aptos projects 
 include localenv
 
