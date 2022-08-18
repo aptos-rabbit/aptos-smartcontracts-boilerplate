@@ -9,6 +9,7 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
+    "run_local_network_docker": "cd aptos_local_validator && docker-compose up",
     "faucet": "ts-node tests/faucet.ts",
     "first_transaction": "ts-node tests/first_transaction.ts",
     "deploy_hello_blockchain": "ts-node deploy/publish_hello_world.ts",
