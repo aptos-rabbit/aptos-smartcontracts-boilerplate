@@ -5,3 +5,4 @@
 *.pyc
 aptos-core
 build
+.env

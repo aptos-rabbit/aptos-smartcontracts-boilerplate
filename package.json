@@ -9,8 +9,9 @@
   ],
   "license": "Apache-2.0",
   "scripts": {
-    "run_local_network": "aptos node run-local-testnet --with-faucet",
-    "run_local_network_docker": "cd aptos_local_validator && docker-compose up",
+    "run_local_network": "cd aptos_local_validator && docker-compose up",
+    "run_local_network_with_cli": "aptos node run-local-testnet --with-faucet",
+
     "faucet": "ts-node tests/faucet.ts",
     "first_transaction": "ts-node tests/first_transaction.ts",
     "deploy_hello_blockchain": "ts-node deploy/publish_hello_world.ts",
@@ -24,6 +25,7 @@
     "@types/node": "^17.0.21",
     "aptos": "^1.2.2",
     "cross-fetch": "^3.1.5",
+    "dotenv": "^16.0.1",
     "fmt": "^2.0.0",
     "js-sha3": "^0.8.0",
     "tweetnacl": "^1.0.3"
