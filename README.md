@@ -7,26 +7,41 @@ https://aptos.dev/nodes/local-testnet/run-a-local-testnet)
 
 2. Compile project using docker [Aptos cli 0.2.5](https://hub.docker.com/repository/docker/dappsdevs/aptos-cli)
 
-3. Deploy and test smart using typescript
+3. Deploy smart using TypeScript
+4. Test smart using TypeScript
 [ts-sdk-doc](https://aptos-labs.github.io/ts-sdk-doc/)
 [transactions-with-ts-sdk](https://aptos.dev/sdks/transactions-with-ts-sdk/)
 
+## Prerequisites
+
+- [docker](https://www.docker.com/)
+- [docker-compose](https://docs.docker.com/compose/)
+- [Node.js 16.17.0 LTS](https://nodejs.org/en/)
+- [yarn](https://classic.yarnpkg.com/lang/en/docs/install)
 
 ## 1. Start local network
-To start local network you need to install [docker](https://www.docker.com/) & [docker-compose](https://docs.docker.com/compose/).
-
-##### 1.1 go to the directory aptos_local_validator
+##### 1.1 Clone the project
 ```bash
-cd aptos_local_validator
+git clone TODO!!!!
 ```
 
-
-##### 1.2 run docker-compose
+##### 1.2 Install dependencies
 ```bash
-docker-compose up
+yarn
 ```
 
-##### 1.3 Use Aptos [Fewcha](https://fewcha.app/) client for local network
+##### 1.3 run local network
+Using Docker (recommended):
+```bash
+yarn run_local_network
+```
+
+Using Aptos CLI:
+```bash
+yarn run_local_network_with_cli
+```
+
+##### 1.4 Use Aptos [Fewcha](https://fewcha.app/) client for local network
 * Install [chrome extension](https://chrome.google.com/webstore/detail/fewcha-aptos-wallet/ebfidpplhabeedpnhjnobghokpiioolj)
 * Create wallet
 * Add local network
@@ -39,9 +54,16 @@ Press "Add new network"
 Press "Save"
 ![Alt text](img/Fewcha4.PNG?raw=true "Fewcha4")
 
-##### 1.4 Top up your balance with a faucet
+##### 1.5 Top up your balance with a faucet
+- Copy .env.example to .env
+- Replace YOUR_PUBLIC_KEY_HERE and YOUR_PRIVATE_KEY_HERE with your real public key and private key.
 
 
+## 2. Compile project using docker
+
+## 3. Deploy smart using TypeScript
+
+## 4. Test smart using TypeScript
 ***
 
 For aptos projects 
