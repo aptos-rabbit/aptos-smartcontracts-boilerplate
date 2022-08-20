@@ -20,7 +20,7 @@ export async function compile(namedAdresses: { [namedAddress: string]: string },
     return objRes;
 }
 
-async function main() {
+export async function getNamedParametersFromToml() : Promise<{ [namedAddress: string]: string }> {
     const moveContent = fs.readFileSync('Move.toml','utf8');
     const lines = moveContent.split("\n");
     let addresStared = false;
@@ -43,7 +43,11 @@ async function main() {
         }
     }
 
-    console.log(addresses);
+    return addresses;
+}
+
+async function main() {
+    const addresses = await getNamedParametersFromToml();
     const compileRes = await compile(addresses);
     console.log(compileRes);
 }
