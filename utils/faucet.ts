@@ -4,7 +4,7 @@ import { faucet } from "../libs/faucet";
 async function main() {
   const args = process.argv.slice(2);
 
-  let walletAddress;
+  let walletAddress = "";
   if (args.length < 1) {
     if (!PUBLIC_KEY) {
       console.error('Please provide your PUBLIC_KEY in .env file or console argument');

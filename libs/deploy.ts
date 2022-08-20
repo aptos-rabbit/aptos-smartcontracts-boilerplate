@@ -1,5 +1,5 @@
 import { compile, getNamedParametersFromToml } from "./compile";
-import { aptosClient } from "../config";
+import { aptosClient, faucetClient } from "../config";
 import fs from "fs";
 /** AptosAccount provides methods around addresses, key-pairs */
 import { AptosAccount, AptosClient, TxnBuilderTypes, BCS, MaybeHexString, HexString } from "aptos";
@@ -27,7 +27,7 @@ export async function publishModule(accountFrom: AptosAccount, moduleHex: string
 
   const bcsTxn = AptosClient.generateBCSTransaction(accountFrom, rawTxn);
   const transactionRes = await aptosClient.submitSignedBCSTransaction(bcsTxn);
-
+  await faucetClient.waitForTransaction(transactionRes.hash);
   return transactionRes.hash;
 }
 
