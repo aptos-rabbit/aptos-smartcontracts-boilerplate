@@ -10,6 +10,7 @@
   "license": "Apache-2.0",
   "scripts": {
     "run_local_network": "cd aptos_local_validator && docker-compose up",
+    "clean_local_network": "cd aptos_local_validator && docker-compose down -v",
     "run_local_network_with_cli": "aptos node run-local-testnet --with-faucet",
 
     "faucet": "ts-node utils/faucet.ts",

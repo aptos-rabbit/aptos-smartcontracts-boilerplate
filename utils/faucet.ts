@@ -15,6 +15,10 @@ async function main() {
     walletAddress = args[0];
   }
 
+  // need to fund with zero value to initiate
+  const txHashes0 = await faucetClient.fundAccount(walletAddress, 0);
+  await aptosClient.waitForTransaction(txHashes0[0]);
+
   console.log(`Balance before: ${await accountBalance(walletAddress)}`);
   const txHashes = await faucetClient.fundAccount(walletAddress, 5_000);
   await aptosClient.waitForTransaction(txHashes[0]);
