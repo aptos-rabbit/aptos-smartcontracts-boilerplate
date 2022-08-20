@@ -12,8 +12,11 @@
     "run_local_network": "cd aptos_local_validator && docker-compose up",
     "clean_local_network": "cd aptos_local_validator && docker-compose down -v",
     "run_local_network_with_cli": "aptos node run-local-testnet --with-faucet",
+    
 
     "faucet": "ts-node utils/faucet.ts",
+    "compile": "ts-node utils/compile.ts",
+    
     "first_transaction": "ts-node tests/first_transaction.ts",
     "deploy_hello_blockchain": "ts-node deploy/publish_hello_world.ts",
     "deploy_hello_blockchain_orig": "ts-node tests/hello_blockchain_orig.ts",
