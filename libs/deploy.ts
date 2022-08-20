@@ -1,15 +1,8 @@
-import { NODE_URL, FAUCET_URL } from "../config";
+import { compile, getNamedParametersFromToml } from "./compile";
+import { aptosClient } from "../config";
 
 /** AptosAccount provides methods around addresses, key-pairs */
-import { AptosAccount, TxnBuilderTypes, BCS, MaybeHexString, HexString } from "aptos";
-
-//<:!:section_1
-
-//:!:>section_2
-/** Wrappers around the Aptos Node and Faucet API */
-import { AptosClient } from "aptos";
-
-const client = new AptosClient(NODE_URL);
+import { AptosAccount, AptosClient, TxnBuilderTypes, BCS, MaybeHexString, HexString } from "aptos";
 
 /** Publish a new module to the blockchain within the specified account */
 export async function publishModule(accountFrom: AptosAccount, moduleHex: string): Promise<string> {
@@ -18,8 +11,8 @@ export async function publishModule(accountFrom: AptosAccount, moduleHex: string
   );
 
   const [{ sequence_number: sequenceNumber }, chainId] = await Promise.all([
-    client.getAccount(accountFrom.address()),
-    client.getChainId(),
+    aptosClient.getAccount(accountFrom.address()),
+    aptosClient.getChainId(),
   ]);
 
   const rawTxn = new TxnBuilderTypes.RawTransaction(
@@ -33,8 +26,7 @@ export async function publishModule(accountFrom: AptosAccount, moduleHex: string
   );
 
   const bcsTxn = AptosClient.generateBCSTransaction(accountFrom, rawTxn);
-  const transactionRes = await client.submitSignedBCSTransaction(bcsTxn);
+  const transactionRes = await aptosClient.submitSignedBCSTransaction(bcsTxn);
 
   return transactionRes.hash;
 }
-

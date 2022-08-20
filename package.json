@@ -16,7 +16,8 @@
 
     "faucet": "ts-node utils/faucet.ts",
     "compile": "ts-node utils/compile.ts",
-    
+    "deploy": "ts-node utils/deploy.ts",
+
     "first_transaction": "ts-node tests/first_transaction.ts",
     "deploy_hello_blockchain": "ts-node deploy/publish_hello_world.ts",
     "deploy_hello_blockchain_orig": "ts-node tests/hello_blockchain_orig.ts",

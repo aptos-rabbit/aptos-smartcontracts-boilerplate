@@ -1,6 +1,6 @@
 /** AptosAccount provides methods around addresses, key-pairs */
 import { AptosAccount, TxnBuilderTypes, BCS, MaybeHexString, HexString, FaucetClient } from "aptos";
-import { publishModule } from "./publish_module";
+import { publishModule } from "../utils/publish_module";
 import assert from "assert";
 import fs from "fs";
 import { NODE_URL, FAUCET_URL } from "../config";

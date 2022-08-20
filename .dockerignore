@@ -1,0 +1,6 @@
+node_modules
+aptos_local_validator
+img
+.env
+manual-scripts
+docker
