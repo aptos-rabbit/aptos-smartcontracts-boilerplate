@@ -1,6 +1,6 @@
 import { compile, getNamedParametersFromToml } from "./compile";
 import { aptosClient } from "../config";
-
+import fs from "fs";
 /** AptosAccount provides methods around addresses, key-pairs */
 import { AptosAccount, AptosClient, TxnBuilderTypes, BCS, MaybeHexString, HexString } from "aptos";
 
@@ -29,4 +29,9 @@ export async function publishModule(accountFrom: AptosAccount, moduleHex: string
   const transactionRes = await aptosClient.submitSignedBCSTransaction(bcsTxn);
 
   return transactionRes.hash;
+}
+
+export async function publishModuleFromFile(accountFrom: AptosAccount, modulePath: string): Promise<string> {
+  const moduleHex = fs.readFileSync(modulePath).toString("hex");
+  return await publishModule(accountFrom, moduleHex);
 }
