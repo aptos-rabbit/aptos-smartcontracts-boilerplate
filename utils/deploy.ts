@@ -9,7 +9,7 @@ async function main() {
     for(const moduleName in compileRes.ByteCodeModulePaths) {
         const modulePath = compileRes.ByteCodeModulePaths[moduleName];
         const deployHash = await publishModuleFromFile(publisherAccount, modulePath);
-        console.log(`Module ${moduleName} was deployed; deploy hash: ${deployHash}`);
+        console.log(`Module ${moduleName} was deployed; tx hash: ${deployHash}`);
     }
 }
 
