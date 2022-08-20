@@ -1,4 +1,4 @@
-module HelloBlockchain::Message {
+module MessageAddress::Message {
     use std::string;
     use std::error;
     use std::signer;

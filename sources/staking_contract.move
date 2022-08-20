@@ -1,4 +1,4 @@
-module StakingContract::StakingData {
+module StakingContractAddress::StakingContract {
     use std::string;
     use std::error;
     use std::signer;
