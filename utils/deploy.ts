@@ -1,5 +1,6 @@
 import { publisherAccount } from "../config";
 import { compile, getNamedParametersFromToml } from "../libs/compile";
+import {colours} from "../libs/font"
 import { publishModuleFromFile } from "../libs/deploy";
 
 async function main() {
@@ -12,9 +13,9 @@ async function main() {
 
         if(transaction) {
             if(transaction.success) {
-                console.log(`Module ${moduleName} was deployed; tx hash: ${transaction.hash}`);
+                console.log(colours.fg.green, `Module ${moduleName} was deployed; tx hash: ${transaction.hash}`, colours.reset);
             } else {
-                console.log(`Module ${moduleName} wasn't deployed; tx hash: ${transaction.hash}`);
+                console.log(colours.fg.red, `Module ${moduleName} wasn't deployed; tx hash: ${transaction.hash}`, colours.reset); 
                 console.log(transaction.vm_status);
             }
             console.log(`https://explorer.devnet.aptos.dev/txn/${transaction.version}`);
