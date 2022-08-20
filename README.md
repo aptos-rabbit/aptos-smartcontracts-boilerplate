@@ -61,17 +61,56 @@ Press "Save"
 
 ## 2. Compile project using docker
 
+```bash
+yarn compile
+```
+
 ## 3. Deploy smart using TypeScript
+
+Before the deployment you need to top-up your account. 
+
+The account public key will be taken from .env file(please see .env.example).
+
+```bash
+yarn faucet
+```
+
+
+```bash
+yarn deploy
+```
+
+You can't deploy to the same network a second time becase the account address has the contract.
+
+
+You can clean the locla network by running
+```bash
+yarn clean_local_network
+```
+
+```bash
+yarn run_local_network
+```
+
+
+```bash
+yarn faucet
+```
+
+
+```bash
+yarn deploy
+```
+
 
 ## 4. Test smart using TypeScript
 ***
 
-For aptos projects 
-include localenv
+```bash
+yarn test
+```
 
-Validator account address
-
-# Get private staking key from docker container
+# Get private staking key from docker validator container
 
 Need to exec in container aptoslabs/faucet:devnet
 
@@ -89,19 +128,3 @@ consensus_private_key: "0x3353840950f6bf77ac8bf52fa1efaab1f25e78ad89a962dbe80cca
 
 network_private_key: "0x68aeeee4b14ac431058848ebb143450590dbacee22c486e16e8c4098c054076a"
 
-# Add custom network to fecha
-
-root@80fe71c53493:/#
-
-To access this account use https://chrome.google.com/webstore/detail/fewcha-aptos-wallet/ebfidpplhabeedpnhjnobghokpiioolj
-
-Add custom network
-
-
-![Alt text](CaptureLocalWallet.PNG?raw=true "Title")
-
-# Add balance to validator
-
-yarn install
-
-yarn first_transaction
