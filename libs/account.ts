@@ -1,6 +1,6 @@
 require('dotenv').config()
 import { aptosClient } from "../config";
-import { AptosAccount, AptosClient, BCS, FaucetClient, MaybeHexString, TxnBuilderTypes } from "aptos";
+import { AptosAccount, AptosClient, BCS, MaybeHexString, TxnBuilderTypes } from "aptos";
 /**
  * Transfers a given coin amount from a given accountFrom to the recipient's account address.
  * Returns the transaction hash of the transaction used to transfer.
@@ -8,8 +8,8 @@ import { AptosAccount, AptosClient, BCS, FaucetClient, MaybeHexString, TxnBuilde
  export async function transfer(accountFrom: AptosAccount, recipient: MaybeHexString, amount: number): Promise<string> {
     const token = new TxnBuilderTypes.TypeTagStruct(TxnBuilderTypes.StructTag.fromString("0x1::aptos_coin::AptosCoin"));
   
-    const scriptFunctionPayload = new TxnBuilderTypes.TransactionPayloadEntryFunction(
-      TxnBuilderTypes.EntryFunction.natural(
+    const scriptFunctionPayload = new TxnBuilderTypes.TransactionPayloadScriptFunction(
+      TxnBuilderTypes.ScriptFunction.natural(
         "0x1::coin",
         "transfer",
         [token],
