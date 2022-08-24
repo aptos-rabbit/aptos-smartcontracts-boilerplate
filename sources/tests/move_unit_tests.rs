@@ -42,7 +42,7 @@ pub fn run_tests_for_pkg(
 #[test]
 fn test_message() {
     let named_address = BTreeMap::from([(
-        String::from("message"),
+        String::from("MessageAddress"),
         AccountAddress::from_hex_literal("0x1").unwrap(),
     )]);
     run_tests_for_pkg("message", named_address);
@@ -51,7 +51,7 @@ fn test_message() {
 #[test]
 fn test_staking_contract() {
     let named_address = BTreeMap::from([(
-        String::from("staking_contract"),
+        String::from("StakingContractAddress"),
         AccountAddress::from_hex_literal("0x1").unwrap(),
     )]);
     run_tests_for_pkg("staking_contract", named_address);
