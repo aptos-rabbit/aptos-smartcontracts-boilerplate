@@ -15,7 +15,7 @@
     "clean_local_network": "cd aptos_local_validator && docker-compose down -v",
     "run_local_network_with_cli": "aptos node run-local-testnet --with-faucet",
     
-    "test": "cargo test",
+    "test": "cd sources && cargo test",
 
     "faucet": "ts-node utils/faucet.ts",
     "compile": "ts-node utils/compile.ts",
