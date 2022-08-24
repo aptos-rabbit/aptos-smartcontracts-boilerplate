@@ -40,19 +40,19 @@ pub fn run_tests_for_pkg(
 }
 
 #[test]
-fn test_hello_blockchain() {
+fn test_message() {
     let named_address = BTreeMap::from([(
-        String::from("HelloBlockchain"),
+        String::from("message"),
         AccountAddress::from_hex_literal("0x1").unwrap(),
     )]);
-    run_tests_for_pkg("hello_blockchain", named_address);
+    run_tests_for_pkg("message", named_address);
 }
 
 #[test]
-fn test_shared_account() {
+fn test_staking_contract() {
     let named_address = BTreeMap::from([(
-        String::from("shared_account"),
+        String::from("staking_contract"),
         AccountAddress::from_hex_literal("0x1").unwrap(),
     )]);
-    run_tests_for_pkg("shared_account", named_address);
+    run_tests_for_pkg("staking_contract", named_address);
 }

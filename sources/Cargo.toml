@@ -9,13 +9,13 @@ publish = false
 edition = "2018"
 
 [dependencies]
-aptos-gas = { path = "./aptos-core/aptos-move/aptos-gas" }
+aptos-gas = { path = "../aptos-core/aptos-move/aptos-gas" }
 clap = "3.1.8"
 
-aptos-types = { path = "./aptos-core/types" }
-aptos-vm = { path = "./aptos-core/aptos-move/aptos-vm" }
+aptos-types = { path = "../aptos-core/types" }
+aptos-vm = { path = "../aptos-core/aptos-move/aptos-vm" }
 
-move-deps = { path = "./aptos-core/aptos-move/move-deps", features = ["table-extension"] }
+move-deps = { path = "../aptos-core/aptos-move/move-deps", features = ["table-extension"] }
 
 [dev-dependencies]
 tempfile = "3.3.0"
