@@ -23,7 +23,6 @@ pub fn run_tests_for_pkg(
     named_addr: BTreeMap<String, AccountAddress>,
 ) {
     let pkg_path = path_in_crate(path_to_pkg);
-    println!("TEST!");
     println!("{}", pkg_path.as_path().to_str().unwrap());
     run_move_unit_tests(
         &pkg_path,
