@@ -1,3 +1,0 @@
-[submodule "aptos-core"]
-	path = aptos-core
-	url = https://github.com/aptos-labs/aptos-core.git
