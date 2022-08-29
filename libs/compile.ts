@@ -2,9 +2,11 @@ import { faucetClient, aptosClient, PUBLIC_KEY } from "../config";
 import { execShellCommand } from "./exec";
 import { CompileResult } from "./models/compile_result";
 import * as fs from 'fs';
+import path from "path";
 
-export async function compile(namedAdresses: { [namedAddress: string]: string }, outputDir = ""): Promise<CompileResult> {
+export async function compile(directory: string, namedAdresses: { [namedAddress: string]: string }, outputDir = ""): Promise<CompileResult> {
     const currentDir = process.cwd();
+    const compileDir = path.join(currentDir, directory);
     let nAddrStr = "";
     for (const key in namedAdresses) {
         const value = namedAdresses[key];
@@ -14,9 +16,9 @@ export async function compile(namedAdresses: { [namedAddress: string]: string },
     if(nAddrStr.length > 2) {
         nAddrStr = nAddrStr.slice(0, -1);
     }
-    const res = await execShellCommand(`docker run --rm -v \"${currentDir}\":/src dappsdevs/aptos-cli:0.2.5 aptos move compile --package-dir /src --named-addresses ${nAddrStr} --output-dir /src/${outputDir}`)
+    const res = await execShellCommand(`docker run --rm -v \"${compileDir}\":/src dappsdevs/aptos-cli:0.2.5 aptos move compile --package-dir /src --named-addresses ${nAddrStr} --output-dir /src/${outputDir}`)
     const objRes: CompileResult = JSON.parse(res);
-    const packageName = await getPackageFromToml();
+    const packageName = await getPackageFromToml(directory);
     objRes.ByteCodeModulePaths = {};
     for(const resIndex in objRes.Result) {
         const res = objRes.Result[resIndex];
@@ -26,8 +28,8 @@ export async function compile(namedAdresses: { [namedAddress: string]: string },
     return objRes;
 }
 
-export async function getPackageFromToml() : Promise<string> {
-    const moveContent = fs.readFileSync('Move.toml','utf8');
+export async function getPackageFromToml(directory: string) : Promise<string> {
+    const moveContent = fs.readFileSync(path.join(directory, 'Move.toml'),'utf8');
     const lines = moveContent.split("\n");
     
     for(let lineNumber in lines) {
@@ -42,8 +44,8 @@ export async function getPackageFromToml() : Promise<string> {
     }
     return "";
 }
-export async function getNamedParametersFromToml() : Promise<{ [namedAddress: string]: string }> {
-    const moveContent = fs.readFileSync('Move.toml','utf8');
+export async function getNamedParametersFromToml(directory: string) : Promise<{ [namedAddress: string]: string }> {
+    const moveContent = fs.readFileSync(path.join(directory, 'Move.toml'),'utf8');
     const lines = moveContent.split("\n");
     let addresStared = false;
     let addresses: { [namedAddress: string]: string } = {};
