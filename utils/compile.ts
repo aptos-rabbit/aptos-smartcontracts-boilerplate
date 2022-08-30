@@ -11,14 +11,18 @@ async function main() {
     try{
         const folders = await fs.readdir(srcFolder);
         console.log('projects count = ' + folders.length);
-        folders.forEach(async function (file, index) {
-            // Make one pass and make the file complete
-            var projectFolder = path.join(srcFolder, file);
+        
+        for(const folder of folders) {
+            var projectFolder = path.join(srcFolder, folder);
             console.log(projectFolder);
-            //const addresses = await getNamedParametersFromToml();
-            //const compileRes = await compile(addresses);
-            //console.log(compileRes);
-        });
+            const addresses = await getNamedParametersFromToml(projectFolder);
+            const compileRes = await compile(projectFolder, addresses);
+            console.log(compileRes);
+        }
+        // folders.forEach(async function (file, index) {
+        //     // Make one pass and make the file complete
+            
+        // });
     }
     catch(err){
         console.error("Could not list the directory.", err);
