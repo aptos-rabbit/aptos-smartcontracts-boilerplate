@@ -11,4 +11,4 @@ export const faucetClient = new FaucetClient(NODE_URL, FAUCET_URL);
 export const aptosClient = new AptosClient(NODE_URL);
 
 const publisherPrivateKey = Uint8Array.from(Buffer.from(PRIVATE_KEY.replace("0x", ""), 'hex'));
-export const publisherAccount = new AptosAccount(publisherPrivateKey, PUBLIC_KEY);
+export const publisherAccount = !PUBLIC_KEY? undefined : new AptosAccount(publisherPrivateKey, PUBLIC_KEY);
