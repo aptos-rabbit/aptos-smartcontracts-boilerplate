@@ -1,16 +1,22 @@
 # Aptos Boilerplate
 
 This is a Boilerplate project for dapps development on Aptos network.
-This project does the following:
-1. Start local network with validator with [docker-compose](
-https://aptos.dev/nodes/local-testnet/run-a-local-testnet)
 
-2. Compile project using docker [Aptos cli 0.2.5](https://hub.docker.com/repository/docker/dappsdevs/aptos-cli)
+## Contents
 
-3. Deploy smart using TypeScript
-4. Test smart using TypeScript
-[ts-sdk-doc](https://aptos-labs.github.io/ts-sdk-doc/)
-[transactions-with-ts-sdk](https://aptos.dev/sdks/transactions-with-ts-sdk/)
+[Prerequisites](#prerequisites)
+
+[1. Start local network](#1-start-local-network)
+
+&nbsp;&nbsp;&nbsp;&nbsp;[1.1 Clone the project](#11-clone-the-project)
+
+&nbsp;&nbsp;&nbsp;&nbsp;[1.2 Install dependencies](#12-install-dependencies)
+
+&nbsp;&nbsp;&nbsp;&nbsp;[1.3 Create .env file](#13-create-env-file)
+
+&nbsp;&nbsp;&nbsp;&nbsp;[1.4 run local network](#14-run-local-network)
+
+&nbsp;&nbsp;&nbsp;&nbsp;[1.5 Use Aptos Fewcha client for local network](#15-use-aptos-fewcha-client-for-local-network)
 
 ## Prerequisites
 
@@ -30,7 +36,12 @@ git clone TODO!!!!
 yarn
 ```
 
-##### 1.3 run local network
+##### 1.3 Create .env file
+```bash
+cp .env.example .env
+```
+
+##### 1.4 run local network
 Using Docker (recommended):
 ```bash
 yarn run_local_network
@@ -41,7 +52,7 @@ Using Aptos CLI:
 yarn run_local_network_with_cli
 ```
 
-##### 1.4 Use Aptos [Fewcha](https://fewcha.app/) client for local network
+##### 1.5 Use Aptos Fewcha client for local network
 * Install [chrome extension](https://chrome.google.com/webstore/detail/fewcha-aptos-wallet/ebfidpplhabeedpnhjnobghokpiioolj)
 * Create wallet
 * Add local network
@@ -54,7 +65,7 @@ Press "Add new network"
 Press "Save"
 ![Alt text](img/Fewcha4.PNG?raw=true "Fewcha4")
 
-##### 1.5 Top up your balance with a faucet
+##### 1.6 Top up your balance with a faucet
 - Copy .env.example to .env
 - Replace YOUR_PUBLIC_KEY_HERE and YOUR_PRIVATE_KEY_HERE with your real public key and private key.
 
