@@ -16,7 +16,7 @@ async function main() {
             var projectFolder = path.join(srcFolder, folder);
             console.log(projectFolder);
             const addresses = await getNamedParametersFromToml(projectFolder);
-            const compileRes = await compile(projectFolder, addresses);
+            const compileRes = await compile(projectFolder, addresses, folder);
             console.log(compileRes);
         }
         // folders.forEach(async function (file, index) {
